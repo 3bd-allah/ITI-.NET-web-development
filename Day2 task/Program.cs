@@ -48,42 +48,43 @@ namespace Day2_task
 
             #region 2D array 
 
-            Console.Write("Enter number of tracks: ");
-            int numOfTracks = int.Parse(Console.ReadLine());
+            //Console.Write("Enter number of tracks: ");
+            //int numOfTracks = int.Parse(Console.ReadLine());
 
-            Console.Write("Enter number of students for each track: ");
-            int numOfStudents = int.Parse(Console.ReadLine());
+            //Console.Write("Enter number of students for each track: ");
+            //int numOfStudents = int.Parse(Console.ReadLine());
 
-            int[,] arr = new int[numOfTracks, numOfStudents];
+            //int[,] arr = new int[numOfTracks, numOfStudents];
 
-            for (int i = 0; i < numOfTracks; i++)
-            {
-                Console.WriteLine($"Enter students ages for track [{i + 1}]: ");
+            //for (int i = 0; i < numOfTracks; i++)
+            //{
+            //    Console.WriteLine($"Enter students ages for track [{i + 1}]: ");
 
-                for (int j = 0; j < numOfStudents; j++)
-                {
-                    Console.Write($"student {j + 1} age: ");
-                    arr[i, j] = int.Parse(Console.ReadLine());
-                }
-            }
+            //    for (int j = 0; j < numOfStudents; j++)
+            //    {
+            //        Console.Write($"student {j + 1} age: ");
+            //        arr[i, j] = int.Parse(Console.ReadLine());
+            //    }
+            //}
 
-            Console.WriteLine("==================================================");
+            //Console.WriteLine("==================================================");
 
-            for (int i = 0; i < numOfTracks; i++)
-            {
-                int sum = 0;
-                Console.WriteLine($"Track [{i + 1}]");
-                for (int j = 0; j < numOfStudents; j++)
-                {
-                    Console.WriteLine($"student{j + 1} age => {arr[i, j]}");
-                    sum += arr[i, j];
-                }
-                int avg = sum / numOfStudents;
-                Console.WriteLine($"Avg of ages for track[{i}]: {avg}");
-                Console.WriteLine("-------------------------");
-            }
+            //for (int i = 0; i < numOfTracks; i++)
+            //{
+            //    int sum = 0;
+            //    Console.WriteLine($"Track [{i + 1}]");
+            //    for (int j = 0; j < numOfStudents; j++)
+            //    {
+            //        Console.WriteLine($"student{j + 1} age => {arr[i, j]}");
+            //        sum += arr[i, j];
+            //    }
+            //    int avg = sum / numOfStudents;
+            //    Console.WriteLine($"Avg of ages for track[{i}]: {avg}");
+            //    Console.WriteLine("-------------------------");
+            //}
 
             #endregion
+
             Console.ReadKey(true);
             
         }
