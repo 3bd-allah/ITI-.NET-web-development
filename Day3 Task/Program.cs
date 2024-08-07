@@ -1,4 +1,6 @@
-﻿
+﻿using static System.Console;
+
+
 namespace Day3_Task
 {
     internal class Program
@@ -6,27 +8,27 @@ namespace Day3_Task
         static void Main(string[] args)
         {
 
-            Console.Write("Enter number of Complex Numbers: ");
-            int numOfComplexnum = int.Parse(Console.ReadLine());
-            Console.WriteLine("-------------------------------");
+            Write("Enter number of Complex Numbers: ");
+            int numOfComplexnum = int.Parse(ReadLine());
+            WriteLine("-------------------------------");
 
             ComplexNumber[] arr = new ComplexNumber[numOfComplexnum];
 
             for (int i = 0; i < numOfComplexnum; i++)
             {
-                Console.WriteLine($"Enter Data for ComplexNumber [{i+1}]");
-                Console.WriteLine($"Enter the real of num{i+1}");
-                arr[i].Real = int.Parse(Console.ReadLine());
+                WriteLine($"Enter Data for ComplexNumber [{i+1}]");
+                WriteLine($"Enter the real of num{i+1}");
+                arr[i].Real = int.Parse(ReadLine());
 
-                Console.WriteLine($"Enter the Img of num{i + 1}");
-                arr[i].Img= int.Parse(Console.ReadLine());
-                Console.WriteLine("==============================");
+                WriteLine($"Enter the Img of num{i + 1}");
+                arr[i].Img= int.Parse(ReadLine());
+                WriteLine("==============================");
             }
 
             foreach (var complex in arr)
-                Console.WriteLine(complex);
+                WriteLine(complex);
 
-            Console.ReadKey(true);
+            ReadKey(true);
         }
     }
 
