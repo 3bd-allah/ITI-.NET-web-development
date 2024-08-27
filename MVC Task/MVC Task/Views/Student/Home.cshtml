@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Static Website</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            font-family: Arial, sans-serif;
+            font-size: 36px;
+            text-align: center;
+        }
+
+        p {
+            color: #666;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Static Website</h1>
+        <p>This is a simple static website that I created using HTML and CSS.</p>
+        <p>It is hosted on W3Schools Spaces, which is a free service that lets you build and host your website online.</p>
+        <p>You can learn more about web development from W3Schools, which is a free online tutorial website.</p>
+    </div>
+    <a asp-controller="student" asp-action="profile">Go to Profile</a>
+</body>
+</html>

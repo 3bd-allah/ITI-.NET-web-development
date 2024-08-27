@@ -11,12 +11,14 @@ namespace Day6_Task
             
             Student student = new Student(100, "Abdullah", 23);
 
-            //int i = student;
-            //Console.WriteLine(i); // 100 
-            //Console.WriteLine(student); // [id]- name age
+            int i = (int)student;
+            Console.WriteLine(i); // 100 
 
-            Console.WriteLine(sizeof(long));
-            Console.WriteLine(sizeof(int));
+            string str =(string)student;
+            Console.WriteLine(str); // Abdullah
+
+            Console.WriteLine(student); // [id]- name age
+
 
 
         }
@@ -86,7 +88,7 @@ namespace Day6_Task
         public static bool operator == (Student s1, Student s2) => s1.Age == s2.Age;
         public static bool operator != (Student s1, Student s2) => s1.Age != s2.Age;
 
-        public static implicit operator int(Student s) => s.Id;
+        public static explicit operator int(Student s) => s.Id;
         public static explicit operator string(Student s)=> s.Name;
         public override string ToString()
         {
