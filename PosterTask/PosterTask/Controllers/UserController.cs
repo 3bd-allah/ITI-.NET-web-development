@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PosterTask.Models;
+using System.Data;
 
 namespace PosterTask.Controllers
 {
@@ -37,6 +38,7 @@ namespace PosterTask.Controllers
         {
             context.Users.Add(user);
             context.SaveChanges();
+            TempData["AddNotification"] = "User Added Successfully";
             return RedirectToAction("Index");
         }
 
@@ -46,6 +48,7 @@ namespace PosterTask.Controllers
             var userToDelete = context.Users.Where(user => user.Id == id).SingleOrDefault();
             context.Users.Remove(userToDelete);
             context.SaveChanges();
+            TempData["DeleteNotification"] = "User Deleted Successfully";
             return RedirectToAction("Index");
         }
 
@@ -63,7 +66,30 @@ namespace PosterTask.Controllers
             userToUpdate.Name = user.Name;
             userToUpdate.Age = user.Age; 
             context.SaveChanges();
+            TempData["EditNotification"] = "New Data Confirmed";
             return RedirectToAction("Index");
+        }
+
+        ///
+        /// State Management
+
+        public IActionResult FormToSetData()
+        {
+            return View();
+        }
+        public IActionResult FormToAddData(string name, string phone)
+        {
+            var options = new CookieOptions { Expires = DateTime.Now.AddSeconds(3f)};
+            Response.Cookies.Append("name", name);
+            Response.Cookies.Append("phone", phone,options);
+            return RedirectToAction("GetData");
+        }
+
+        public IActionResult GetData()
+        {
+            string nameCookie = Request.Cookies["name"];
+            string phoneCookie = Request.Cookies["phone"];
+            return View(new { name= nameCookie, phone = phoneCookie});
         }
     }
 }

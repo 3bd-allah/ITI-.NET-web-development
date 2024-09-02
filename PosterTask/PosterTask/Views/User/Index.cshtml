@@ -5,6 +5,25 @@
 
 
 
+@if (@TempData["AddNotification"] is not null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["AddNotification"]
+    </div>
+}
+
+@if(TempData["DeleteNotification"] is not null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["DeleteNotification"]
+    </div>
+}
+
+@if(@TempData["EditNotification"] is not null){
+    <div class="alert alert-info" role="alert">
+        @TempData["EditNotification"]
+    </div>
+}
 <a href="/user/addform"><button class="btn btn-outline-success">Add User</button></a>
 <br/>
 <br/>
