@@ -11,7 +11,7 @@ using PosterTask.Models;
 namespace PosterTask.Migrations
 {
     [DbContext(typeof(PosterDbContext))]
-    [Migration("20240831053644_v1")]
+    [Migration("20240903035845_v1")]
     partial class v1
     {
         /// <inheritdoc />

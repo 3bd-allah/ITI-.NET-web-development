@@ -11,6 +11,7 @@ namespace PosterTask
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<PosterDbContext>();
+            builder.Services.AddSession();
 
             var app = builder.Build();
 
@@ -22,6 +23,8 @@ namespace PosterTask
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseAuthorization();
 

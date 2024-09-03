@@ -1,0 +1,65 @@
+﻿@model IEnumerable<PosterTask.Models.Post>
+
+@{
+    ViewData["Title"] = "GetAll";
+}
+
+<h1>All Posts</h1>
+
+<p>
+    <a asp-action="Create"><button class="btn btn-outline-success">Create New Post</button></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Body)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Likes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Share)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>Handle</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Body)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Likes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Share)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Name)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id"><button class="btn btn-outline-secondary">Edit</button></a> |
+                    <a asp-action="PostDetails" asp-route-id="@item.Id"><button class="btn btn-primary">Details</button></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id"><button class="btn btn-danger">Delete</button></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

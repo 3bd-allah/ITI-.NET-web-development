@@ -12,7 +12,7 @@ namespace PosterTask.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer
-                ("Data Source=DESKTOP-PRASEGR; Initial Catalog=PosterDb; Integrated Security=True ;TrustServerCertificate=True");
+                ("Data Source=.; Initial Catalog=PosterDb; Integrated Security=True ;TrustServerCertificate=True");
             base.OnConfiguring(optionsBuilder);
         }
     }
