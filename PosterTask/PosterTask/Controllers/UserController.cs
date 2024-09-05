@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PosterTask.Models;
+using PosterTask.ViewModels;
 using System.Data;
 
 namespace PosterTask.Controllers
@@ -29,17 +30,33 @@ namespace PosterTask.Controllers
         }
 
         // create 
-        public IActionResult AddForm()
+
+        [HttpGet]
+        public IActionResult AddUser()
         {
             return View();
         }
 
-        public IActionResult AddToDB(User user)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AddUser(UserVM regUserVM)
         {
-            context.Users.Add(user);
-            context.SaveChanges();
-            TempData["AddNotification"] = "User Added Successfully";
-            return RedirectToAction("Index");
+            if(ModelState.IsValid)
+            {
+                User userToAdd = new User()
+                {
+                    Name = regUserVM.Name,
+                    Age = regUserVM.Age,
+                    Email = regUserVM.Email,
+                    Password = regUserVM.Password,  
+                };
+                context.Users.Add(userToAdd);
+                context.SaveChanges();
+                TempData["AddNotification"] = "User Added Successfully";
+                return RedirectToAction("Index");
+            }
+
+            return View("AddUser");
         }
 
         //Delete 
@@ -54,17 +71,20 @@ namespace PosterTask.Controllers
 
 
         // Update
-        public IActionResult EditForm(int id)
+        [HttpGet]
+        public IActionResult Edit(int id)
         {
             User user = context.Users.SingleOrDefault(user => user.Id == id);
             return View(user); 
         }
-        public IActionResult EditAction(User user)
+
+        [HttpPost]
+        public IActionResult Edit(User userVM)
         {
-            var userToUpdate = context.Users.Where(u => u.Id == user.Id).SingleOrDefault();
-            if(userToUpdate == null) return Content("Invalid User");
-            userToUpdate.Name = user.Name;
-            userToUpdate.Age = user.Age; 
+            var userToUpdate = context.Users.Where(u => u.Id == userVM.Id).SingleOrDefault();
+            if (userToUpdate == null) return Content("Invalid User");
+            userToUpdate.Name = userVM.Name;
+            userToUpdate.Age = userVM.Age;
             context.SaveChanges();
             TempData["EditNotification"] = "New Data Confirmed";
             return RedirectToAction("Index");

@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Create";
+    SelectList users = new SelectList(ViewBag.Users, "Id", "Name");
 }
 
 <h1>Create</h1>
@@ -38,8 +39,23 @@
                 <span asp-validation-for="Share" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <input asp-for="UserId" class ="form-control" asp-items="ViewBag.UserId"></input>
+                @if (Context.Session.GetString("UserName") is null)
+                {
+                    <label asp-for="UserId" class="control-label"></label>
+                    <br />
+                    <select asp-for="UserId" asp-items="users">
+                        <option value="" selected disabled>Choose One</option>
+                    </select>
+
+                }
+                else
+                {
+                    <label for="name" class="control-label">User Name</label>
+                    <input class="form-control" name="UserId" value=@Context.Session.GetInt32("UserId") hidden>
+
+                     
+                     <input class="form-control" id="name" value=@Context.Session.GetString("UserName") disabled ></input>
+                }
             </div>
             <br />
             <div class="form-group">

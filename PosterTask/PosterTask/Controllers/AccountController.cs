@@ -11,6 +11,8 @@ namespace PosterTask.Controllers
         {
             this.context = _context;
         }
+
+
         public IActionResult LoginForm()
         {
             return View();
@@ -28,12 +30,13 @@ namespace PosterTask.Controllers
             }
             HttpContext.Session.SetString("UserName", user.Name);
             HttpContext.Session.SetInt32("UserId", user.Id);
-            return RedirectToAction("Details", "User", new {Id= user.Id });
+            return RedirectToAction("GetAll", "Post");
         }
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
         }
+
     }
 }

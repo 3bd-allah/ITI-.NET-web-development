@@ -25,6 +25,13 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Post" asp-action="GetAll">Posts</a>
+                        </li>
+
                         @if(Context.Session.GetString("UserName") is null)
                         {
                             <li class="nav-item">
@@ -40,6 +47,8 @@
                                 <p class="nav-link text-dark">Welcome @Context.Session.GetString("UserName")</p>
                             </li>
                         }
+
+                       
                     </ul>
                 </div>
             </div>

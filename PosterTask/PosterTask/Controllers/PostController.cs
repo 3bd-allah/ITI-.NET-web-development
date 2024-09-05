@@ -17,6 +17,7 @@ namespace PosterTask.Controllers
 		[HttpGet]
 		public IActionResult Create()
 		{
+			ViewBag.Users = context.Users.ToList();
 			return View();
 		}
 
@@ -33,7 +34,7 @@ namespace PosterTask.Controllers
 				UserId = post.UserId,
 
 			};
-			context.Posts.Add(postToAdd);
+			context.Posts.Add(post);
 			context.SaveChanges();
 			return RedirectToAction(nameof(GetAll));
 		}

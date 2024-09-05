@@ -24,7 +24,9 @@
         @TempData["EditNotification"]
     </div>
 }
-<a href="/user/addform"><button class="btn btn-outline-success">Add User</button></a>
+
+
+<a asp-controller="User" asp-action="AddUser"><button class="btn btn-outline-success">Add User</button></a>
 <br/>
 <br/>
 
@@ -50,7 +52,7 @@
                 <td>
                     <a href="/user/details/@user.Id"><button class="btn btn-outline-primary">Details</button></a>
                     <a href="/user/DeleteUser/@user.Id"><button class="btn btn-danger">Delete</button></a>
-                    <a href="/user/EditForm/@user.Id"><button class="btn btn-outline-secondary">Edit</button></a>
+                    <a href="/user/Edit/@user.Id"><button class="btn btn-outline-secondary">Edit</button></a>
                 </td>
             </tr>
         }

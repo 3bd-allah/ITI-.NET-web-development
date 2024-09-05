@@ -8,7 +8,7 @@ namespace PosterTask.Models
         public virtual DbSet<Post> Posts{ get; set; }
         public virtual DbSet<Role> Roles{ get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
-
+    
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer

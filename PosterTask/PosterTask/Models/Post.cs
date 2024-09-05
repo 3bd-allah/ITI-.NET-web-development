@@ -14,6 +14,7 @@ namespace PosterTask.Models
         public int Share{ get; set; }
 
         [ForeignKey("User")]
+        [Display(Name ="User Name")]
         public int UserId { get; set; }
 
         // Navagation Property 
